@@ -31,8 +31,8 @@ const LiveScore = () => {
   }, []); 
 
   return (
-    <div>
-      <Typography variant="h4" align="center" gutterBottom>
+    <div >
+      <Typography sx={{mt: 3}} variant="h4" align="center" gutterBottom >
         Live Match Scores
       </Typography>
       {loading ? (
