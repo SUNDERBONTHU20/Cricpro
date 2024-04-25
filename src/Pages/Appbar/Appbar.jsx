@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -10,9 +10,8 @@ import Switch from "@mui/material/Switch";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import logo from "..//.//..//Images/cricket (1).png"; 
 
-const Appbar = () => {
+const Appbar = ({ darkMode, toggleDarkMode }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,10 +19,6 @@ const Appbar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode);
   };
 
   return (
@@ -60,9 +55,9 @@ const Appbar = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleDarkModeToggle}>
+              <MenuItem onClick={toggleDarkMode}>
                 Dark Mode
-                <Switch checked={darkMode} onChange={handleDarkModeToggle} />
+                <Switch checked={darkMode} onChange={toggleDarkMode} />
               </MenuItem>
               <MenuItem component={Link} to="/LoginPage" onClick={handleClose}>Login</MenuItem>
             </Menu>
@@ -74,3 +69,4 @@ const Appbar = () => {
 };
 
 export default Appbar;
+ 
